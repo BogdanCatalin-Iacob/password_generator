@@ -46,10 +46,29 @@ def generate_password(length: int, symbols: bool, uppercase: bool) -> str:
     for _ in range(length):
         new_password += combination[secrets.randbelow(len(combination))]
 
-    return new_password
+    # set the symbol and uppercase flags
+    has_symbols: bool = False
+    has_upper: bool = False
+
+    # Check if symbol is required and check if the password contains symbols
+    if symbols:
+        if contains_symbols(new_password):
+            has_symbols = True
+
+    # Check if uppercase is required and check if the password contains uppercase letters
+    if uppercase:
+        if contains_upper(new_password):
+            has_upper = True
+
+    # Return the password with required characters
+    if (has_symbols == symbols and has_upper == uppercase):
+        return new_password
+    else:
+        return generate_password(
+            length=length, symbols=symbols, uppercase=uppercase)
 
 
 if __name__ == '__main__':
-    new_pass: str = generate_password(length=20, symbols=True, uppercase=True)
+    new_pass: str = generate_password(length=10, symbols=True, uppercase=True)
 
     print(new_pass)
