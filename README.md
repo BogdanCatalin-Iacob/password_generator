@@ -6,7 +6,7 @@ This project was developed using a [VS Code](https://code.visualstudio.com/). Th
 
 The project was started by navigating to [GitHub](https://github.com) and creating a new repository by clicking `New` button. Under 'Repository name' I input 'password_generator' and then clicked 'Create repository'.
 
-I opened VS Code and initialized directory rock_paper_scissors: 
+I opened VS Code and initialized directory 'password_generator': 
 ```
 git init
 git add README.md
